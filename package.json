@@ -1,0 +1,17 @@
+{
+  "description": "Etherpad plugin to detect connection status, and reconnect to pad as soon as possible. Enhance default connect/reconnect feature on Etherpad core.",
+  "name": "ep_connection_status",
+  "version": "0.0.1",
+  "author": {
+    "name": "Luiza Pagliari",
+    "email": "lpagliari@gmail.com"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storytouch/ep_connection_status"
+  }
+}
