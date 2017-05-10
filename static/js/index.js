@@ -1,6 +1,10 @@
 exports.aceEditEvent = function (hook, context) {
-  // FIXME use a setting for milisecondsToWaitForReconnect
-  suggestReconnectionIfLastEventListenedWasTooLongAgo(3000);
+  var pluginSettings = clientVars.plugins.plugins.ep_connection_status;
+
+  // define delay if not defined yet
+  pluginSettings.milisecondsToWaitForReconnect = pluginSettings.milisecondsToWaitForReconnect || 3000;
+
+  suggestReconnectionIfLastEventListenedWasTooLongAgo(pluginSettings.milisecondsToWaitForReconnect);
 }
 
 var timeOfLastChange;
