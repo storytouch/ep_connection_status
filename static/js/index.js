@@ -1,8 +1,10 @@
+var DEFAULT_TIME_TO_WAIT_FOR_RECONNECT = 15000;
+
 exports.aceEditEvent = function (hook, context) {
   var pluginSettings = clientVars.plugins.plugins.ep_connection_status;
 
-  // define delay if not defined yet
-  pluginSettings.milisecondsToWaitForReconnect = pluginSettings.milisecondsToWaitForReconnect || 3000;
+  // define time limit if not defined yet
+  pluginSettings.milisecondsToWaitForReconnect = pluginSettings.milisecondsToWaitForReconnect || DEFAULT_TIME_TO_WAIT_FOR_RECONNECT;
 
   suggestReconnectionIfLastEventListenedWasTooLongAgo(pluginSettings.milisecondsToWaitForReconnect);
 }
@@ -12,7 +14,7 @@ var suggestReconnectionIfLastEventListenedWasTooLongAgo = function(milisecondsTo
   // setTimeout/clearTimeout does not work, the setTimeout callback is never called when client
   // is not active
   if (Date.now() - timeOfLastChange > milisecondsToWaitForReconnect) {
-    // FIXME use a custom disconnect message
+    // TODO use a custom disconnect message. Need to change Etherpad code to allow this
     pad.handleChannelStateChange('DISCONNECTED', 'slowcommit');
   }
   timeOfLastChange = Date.now();
