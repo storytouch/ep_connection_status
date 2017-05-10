@@ -1,4 +1,7 @@
-var DEFAULT_TIME_TO_WAIT_FOR_RECONNECT = 15000;
+// Consider client inactive when there's no activity for 2 minutes.
+// This cannot be too short, otherwise a fresh (no cache) opening of
+// a pad will trigger the reconnect event.
+var DEFAULT_TIME_TO_WAIT_FOR_RECONNECT = 120000;
 
 exports.aceEditEvent = function (hook, context) {
   var pluginSettings = clientVars.plugins.plugins.ep_connection_status;
