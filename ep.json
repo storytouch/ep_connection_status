@@ -3,7 +3,8 @@
     {
       "name": "main",
       "client_hooks": {
-        "aceEditEvent": "ep_connection_status/static/js/index"
+        "aceEditEvent": "ep_connection_status/static/js/index",
+        "postAceInit": "ep_connection_status/static/js/api"
       }
     }
   ]
