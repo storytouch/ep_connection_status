@@ -5,6 +5,9 @@
       "client_hooks": {
         "aceEditEvent": "ep_connection_status/static/js/index",
         "postAceInit": "ep_connection_status/static/js/api"
+      },
+      "hooks": {
+        "expressCreateServer": "ep_connection_status/index"
       }
     }
   ]
