@@ -1,7 +1,7 @@
-var checker = require('./checker');
+var healthChecker = require('./healthChecker');
 
 exports.expressCreateServer = function(hook_name, args, callback) {
-  var thisChecker = checker.init();
+  var thisChecker = healthChecker.init();
   args.app.get('/health', function(req, res) {
     var isHealth = thisChecker.areAllChecksFullfilled();
     if (isHealth) {
