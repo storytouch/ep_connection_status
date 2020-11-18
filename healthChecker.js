@@ -15,8 +15,7 @@ var healthChecker = function() {
 
 healthChecker.prototype._listenToHealthCheckEvents = function() {
   var self = this;
-  var editorEmitter = new editorEvent().getEventEmitter();
-  editorEmitter.on(WEBPACK_FILES_GENERATED_EVENT, function() {
+  editorEvent.on(WEBPACK_FILES_GENERATED_EVENT, function() {
     self.changeCheckerValue('webpack_is_ready', true);
   });
 };
